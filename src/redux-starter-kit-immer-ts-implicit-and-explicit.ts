@@ -1,5 +1,9 @@
-import { createStore, combineReducers } from "redux";
-import { createSlice, createAction, PayloadAction } from "redux-starter-kit";
+import {
+  createSlice,
+  createAction,
+  PayloadAction,
+  configureStore
+} from "redux-starter-kit";
 
 /* BEGIN EXPLICIT ACTIONS */
 const actions = {
@@ -32,11 +36,11 @@ const slice = createSlice({
 /* END REDUCER */
 
 /* BEGIN CREATE STORE */
-const reducers = combineReducers({
-  todo: slice.reducer
+const store = configureStore({
+  reducer: {
+    todo: slice.reducer
+  }
 });
-
-const store = createStore(reducers);
 /* END CREATE STORE */
 
 /* RUN */

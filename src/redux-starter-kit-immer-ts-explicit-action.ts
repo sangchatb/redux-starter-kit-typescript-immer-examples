@@ -1,5 +1,9 @@
-import { createStore, combineReducers } from "redux";
-import { createAction, createReducer, PayloadAction } from "redux-starter-kit";
+import {
+  createAction,
+  createReducer,
+  PayloadAction,
+  configureStore
+} from "redux-starter-kit";
 
 /* BEGIN EXPLICIT ACTIONS */
 interface TodoModel {
@@ -28,11 +32,11 @@ const todoReducer = createReducer(initialState, {
 /* END REDUCER */
 
 /* BEGIN CREATE STORE */
-const reducers = combineReducers({
-  todo: todoReducer
+const store = configureStore({
+  reducer: {
+    todo: todoReducer
+  }
 });
-
-const store = createStore(reducers);
 /* END CREATE STORE */
 
 /* RUN */
