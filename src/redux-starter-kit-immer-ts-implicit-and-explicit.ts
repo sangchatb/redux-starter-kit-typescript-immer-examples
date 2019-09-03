@@ -21,6 +21,7 @@ const initialState = {
 };
 
 const slice = createSlice({
+  slice: "todo",
   initialState,
   reducers: {
     addTodo(state, action: PayloadAction<TodoModel>): void {
