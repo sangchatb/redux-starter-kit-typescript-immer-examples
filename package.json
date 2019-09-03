@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "start": "ts-node src/immer-ts.0.ts"
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
