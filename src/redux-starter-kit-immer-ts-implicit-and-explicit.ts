@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import { createSlice, createAction } from "redux-starter-kit";
+import { createSlice, createAction, PayloadAction } from "redux-starter-kit";
 
 /* BEGIN EXPLICIT ACTIONS */
 const actions = {
@@ -19,12 +19,12 @@ const initialState = {
 const slice = createSlice({
   initialState,
   reducers: {
-    addTodo: (state, action: { payload: TodoModel }): void => {
+    addTodo(state, action: PayloadAction<TodoModel>): void {
       state.todos.push({ name: action.payload.name });
     }
   },
   extraReducers: {
-    [actions.logout.type]: (): typeof initialState => {
+    [actions.logout.type]: function(): typeof initialState {
       return initialState;
     }
   }

@@ -1,5 +1,5 @@
-import { createStore, combineReducers, Action as ReduxAction } from "redux";
-import { createAction, createReducer } from "redux-starter-kit";
+import { createStore, combineReducers } from "redux";
+import { createAction, createReducer, PayloadAction } from "redux-starter-kit";
 
 /* BEGIN EXPLICIT ACTIONS */
 interface TodoModel {
@@ -8,10 +8,6 @@ interface TodoModel {
 
 interface AddTodoPayload {
   name: string;
-}
-
-interface Action<TPayload> extends ReduxAction {
-  payload: TPayload;
 }
 
 const actions = {
@@ -25,7 +21,7 @@ const initialState = {
 };
 
 const todoReducer = createReducer(initialState, {
-  [actions.addTodo.type]: (draft, action: Action<AddTodoPayload>) => {
+  [actions.addTodo.type]: (draft, action: PayloadAction<AddTodoPayload>) => {
     draft.todos.push(action.payload);
   }
 });

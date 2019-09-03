@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from "redux";
-import { createSlice } from "redux-starter-kit";
+import { createSlice, PayloadAction } from "redux-starter-kit";
 
 /* BEGIN REDUCER */
 interface TodoModel {
@@ -13,7 +13,7 @@ const initialState = {
 const slice = createSlice({
   initialState,
   reducers: {
-    addTodo: (state, action: { payload: TodoModel }): void => {
+    addTodo(state, action: PayloadAction<TodoModel>): void {
       state.todos.push({ name: action.payload.name });
     }
   }
